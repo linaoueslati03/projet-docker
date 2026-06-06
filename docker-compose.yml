@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+
+  database:
+    image: postgres:16-alpine
+    container_name: kanban-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: kanban
+      POSTGRES_PASSWORD: kanban_secret
+      POSTGRES_DB: kanban
+    volumes:
+      - postgresdata:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - reseauproj
+
+volumes:
+  postgresdata:
+
+networks:
+  reseauproj:
+    driver: bridge
