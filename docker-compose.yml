@@ -1,4 +1,3 @@
-version: "3.9"
 
 services:
 
@@ -13,6 +12,27 @@ services:
     volumes:
       - postgresdata:/var/lib/postgresql/data
       - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - reseauproj
+  
+  backend:
+    image: loueslati/projet-docker-backend
+    container_name: kanban-backend
+    restart: unless-stopped
+    env_file:
+      - .env
+    depends_on:
+      - database
+    networks:
+      - reseauproj
+
+  frontend:
+    image: linaesther/projet-docker-frontend
+    container_name: kanban-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
     networks:
       - reseauproj
 
