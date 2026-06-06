@@ -16,7 +16,7 @@ services:
       - reseauproj
   
   backend:
-    image: loueslati/projet-docker-backend
+    image: linaesther/projet-docker-backend
     container_name: kanban-backend
     restart: unless-stopped
     env_file:
