@@ -176,5 +176,5 @@ projet-docker/
 
 Projet réalisé en groupe de 3 :
 - *Lina* — Backend & Docker Hub
-- *Celia* — Frontend & Nginx
-- *Amandine* — Base de données & orchestration
+- *Amandine* — Frontend & Nginx
+- *Celia* — Base de données & orchestration
